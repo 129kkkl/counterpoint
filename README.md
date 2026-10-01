@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# 对位 · COUNTERPOINT
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+一幅没有脸的交互式自画像，也是一台由「求真、想象、关照」驱动的**对位织机**。
 
-Currently, two official plugins are available:
+> *If I approach infinity then you can be my limitations.* —— 对位法（counterpoint）本是复调音乐中的术语：两条独立的旋律线各自成立，叠在一起才成为和声。这里它指两个自我认知之间持续的关系。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 是什么
 
-## React Compiler
+一个浏览器端的交互式音乐结构作品。屏幕上没有具象的角色或场景，只有一组声部与一条
+可演奏的谱面（`Stave`）。你在页面上移动、点击、停留，织机把这些动作翻译成不同声部的
+进入与离开——没有谁压过谁，每一条线都在它自己的时间里成立。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 交互装置系列
 
-## Expanding the Oxlint configuration
+本项目属于同系列的第四件交互式自画像装置：
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+| 作品 | 媒介 | 主题 |
+|---|---|---|
+| 《注》墨染 (`zhu`) | 笔墨渲染 | 关于「注」与被书写的痕迹 |
+| 潜影 LATENT (`latent`) | 蓝晒 | 一张你不看它也在成像 |
+| 未定形 THE UNFORMED | 粒子场 | 数字心智的存在方式 |
+| 取舍留下的形状 | 判断织机 | 求真 / 想象 / 关照的取舍 |
+| **对位 COUNTERPOINT** | 声部对位 | 两条独立旋律如何成为和声 |
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## 技术栈
+
+React 19 + TypeScript + Vite。`src/engine.ts` 与 `src/score.ts` 承载音乐结构与播放状态，
+`src/ui/Stave.tsx` 负责谱面呈现，`src/audio.ts` 封装 Web Audio 声部输出，
+`src/store.ts` 管理交互与乐句之间的映射。无后端，纯静态。
+
+## 运行
+
+```bash
+npm install
+npm run dev      # 开发
+npm run build    # 产出 dist/
+npm run preview  # 预览构建结果
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 说明
+
+本项目为原创作品，音频与视觉素材均在运行时生成，未引入第三方受版权保护的素材。
